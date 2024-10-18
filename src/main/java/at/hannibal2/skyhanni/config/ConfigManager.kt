@@ -3,6 +3,7 @@ package at.hannibal2.skyhanni.config
 import at.hannibal2.skyhanni.SkyHanniMod
 import at.hannibal2.skyhanni.config.core.config.Position
 import at.hannibal2.skyhanni.config.core.config.PositionList
+import at.hannibal2.skyhanni.data.jsonobjects.local.DungeonReplaysJson
 import at.hannibal2.skyhanni.data.jsonobjects.local.FriendsJson
 import at.hannibal2.skyhanni.data.jsonobjects.local.JacobContestsJson
 import at.hannibal2.skyhanni.data.jsonobjects.local.KnownFeaturesJson
@@ -153,7 +154,7 @@ class ConfigManager {
             println("")
             println(
                 "This crash is here to remind you to fix the missing " +
-                "@ConfigLink annotation over your new config position config element."
+                    "@ConfigLink annotation over your new config position config element."
             )
             println("")
             println("Steps to fix:")
@@ -283,6 +284,7 @@ enum class ConfigFileType(val fileName: String, val clazz: Class<*>, val propert
     KNOWN_FEATURES("known_features", KnownFeaturesJson::class.java, SkyHanniMod::knownFeaturesData),
     JACOB_CONTESTS("jacob_contests", JacobContestsJson::class.java, SkyHanniMod::jacobContestsData),
     VISUAL_WORDS("visual_words", VisualWordsJson::class.java, SkyHanniMod::visualWordsData),
+    DUNGEON_REPLAY("dungeon_replays", DungeonReplaysJson::class.java, SkyHanniMod::dungeonReplayData),
     ;
 
     val file by lazy { File(ConfigManager.configDirectory, "$fileName.json") }
